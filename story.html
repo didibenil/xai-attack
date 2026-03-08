@@ -426,7 +426,7 @@
             </p>
             <p>
                 For fraud detection specifically, this means banks and fintech companies are increasingly
-                deploying tools like SHAP — SHapley Additive exPlanations — which assign each transaction
+                deploying tools like SHAP (SHapley Additive exPlanations), which assign each transaction
                 feature a score reflecting its contribution to the model's prediction. These explanations
                 are shared with auditors, regulators, and increasingly, with customers themselves.
             </p>
@@ -434,8 +434,8 @@
             <div class="callout amber">
                 <strong>The Emerging Risk</strong>
                 <p>
-                    If interpretability becomes the public standard — if companies are required
-                    to expose their model explanations — attackers gain access to a precise map of how those
+                    If interpretability becomes the public standard, and companies are required
+                    to expose their model explanations, attackers gain access to a precise map of how those
                     models make decisions. This research examines what happens next.
                 </p>
             </div>
@@ -446,7 +446,7 @@
         <section>
             <h2>This Is Already Happening</h2>
             <p>
-                XAI is not a future concern — it is being deployed at scale today, across
+                XAI is not a future concern. It is being deployed at scale today, across
                 the financial infrastructure that processes trillions of dollars in transactions.
             </p>
 
@@ -465,7 +465,7 @@
                 </tr>
                 <tr>
                     <td>AWS SageMaker Clarify</td>
-                    <td>Generates SHAP values for bias detection and model explainability — integrated into the world's largest cloud ML infrastructure.</td>
+                    <td>Generates SHAP values for bias detection and model explainability, integrated into the world's largest cloud ML infrastructure.</td>
                 </tr>
                 <tr>
                     <td>Salesforce Einstein</td>
@@ -473,14 +473,14 @@
                 </tr>
                 <tr>
                     <td>Stripe / Adyen</td>
-                    <td>Payment processors increasingly require explanation trails for disputed fraud decisions — driving demand for customer-facing SHAP outputs.</td>
+                    <td>Payment processors increasingly require explanation trails for disputed fraud decisions, driving demand for customer-facing SHAP outputs.</td>
                 </tr>
             </table>
 
             <div class="callout amber">
                 <strong>The Regulatory Trajectory</strong>
                 <p>
-                    Most of these deployments are currently internal — serving auditors and compliance teams.
+                    Most of these deployments are currently internal, serving auditors and compliance teams.
                     But the EU AI Act (2024) and fair lending regulations are pushing toward
                     customer-facing explanations: "your transaction was flagged because field X and field Y
                     were unusual." That is precisely the exposure this research warns about.
@@ -494,7 +494,7 @@
             <p>
                 This project investigates one specific consequence of public interpretability:
                 does access to SHAP explanations allow adversarial attackers to evade fraud detection
-                more <em>stealthily</em> — with fewer feature changes, smaller perturbations, and less
+                more <em>stealthily</em>, with fewer feature changes, smaller perturbations, and less
                 chance of triggering detection systems?
             </p>
 
@@ -508,7 +508,7 @@
             <p>
                 The hypothesis: an attacker with access to SHAP values knows exactly which features to
                 manipulate. Rather than scattering changes across many transaction fields, they can
-                subtly modify only the features that matter — making the attack far harder to detect
+                subtly modify only the features that matter, making the attack far harder to detect
                 by the monitoring systems that sit behind the ML model.
             </p>
         </section>
@@ -520,13 +520,13 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <h4>Train a robust fraud detector</h4>
-                    <p>XGBoost classifier on 100,000 synthetic transactions. 30 features — 10 truly informative,
+                    <p>XGBoost classifier on 100,000 synthetic transactions. 30 features, 10 truly informative,
                     20 noise. Regularized to prevent fragile decision boundaries.</p>
                 </div>
                 <div class="timeline-item">
                     <h4>Generate SHAP explanations</h4>
                     <p>Compute SHAP values for every transaction. Each value reveals how much a feature
-                    contributes to the "fraud" prediction — and in which direction.</p>
+                    contributes to the "fraud" prediction, and in which direction.</p>
                 </div>
                 <div class="timeline-item">
                     <h4>Run two attacks with identical resources</h4>
@@ -549,7 +549,7 @@
 
             <p>
                 With equal resources and comparable success rates, the SHAP-guided attack modified
-                dramatically fewer features — nearly half as many as the blind attack. The perturbations
+                dramatically fewer features, nearly half as many as the blind attack. The perturbations
                 were also smaller, making the fraudulent transaction look far more like a legitimate one.
             </p>
 
@@ -590,7 +590,7 @@
             <div class="callout red">
                 <strong>The Core Finding</strong>
                 <p>
-                    SHAP access does not dramatically increase attack success rates — but it
+                    SHAP access does not dramatically increase attack success rates, but it
                     makes attacks significantly stealthier. The attacker modifies half as many
                     features, producing transactions that look far more plausible to secondary
                     anomaly detection systems.
@@ -644,7 +644,7 @@
                         <div class="feature-dot"></div>
                         <div class="feature-dot"></div>
                     </div>
-                    <p class="caption">5 of 30 features touched — surgical, hard to flag</p>
+                    <p class="caption">5 of 30 features touched, surgical and hard to flag</p>
                 </div>
 
                 <div class="attack-card">
@@ -681,14 +681,14 @@
                         <div class="feature-dot"></div>
                         <div class="feature-dot"></div>
                     </div>
-                    <p class="caption">10 of 30 features touched — scattered, easier to detect</p>
+                    <p class="caption">10 of 30 features touched, scattered and easier to detect</p>
                 </div>
             </div>
 
             <p>
                 A SHAP-guided attacker crafts a fraudulent transaction that looks, to secondary monitors,
                 like a slightly unusual but plausible purchase. A blind attacker produces a transaction
-                with erratic changes across many unrelated fields — far more likely to raise flags
+                with erratic changes across many unrelated fields, far more likely to raise flags
                 before the transaction is even processed.
             </p>
 
@@ -696,9 +696,7 @@
                 <strong>The Implication</strong>
                 <p>
                     If interpretability becomes the public standard and SHAP values become widely
-                    accessible, the fraud detection ecosystem does not just face smarter attacks —
-                    it faces attacks specifically engineered to be invisible to the monitoring
-                    infrastructure built around ML models.
+                    accessible, the fraud detection ecosystem does not just face smarter attacks. It faces attacks specifically engineered to be invisible to the monitoring infrastructure built around ML models.
                 </p>
             </div>
         </section>
@@ -709,7 +707,7 @@
 
             <p>
                 This finding is not specific to fraud detection. Any domain where explainable AI is
-                deployed publicly — loan approvals, insurance underwriting, content moderation — faces
+                deployed publicly (loan approvals, insurance underwriting, content moderation) faces
                 the same structural vulnerability. Publishing explanations is publishing a partial
                 attack manual.
             </p>
@@ -726,7 +724,7 @@
             </ul>
 
             <p>
-                The answer is not to abandon transparency — it is to build transparency systems that
+                The answer is not to abandon transparency. It is to build transparency systems that
                 are privacy-preserving by design, so that explanations serve their legitimate purpose
                 without revealing the model's full decision logic.
             </p>
@@ -737,12 +735,12 @@
             <h2>Mitigation Strategies</h2>
 
             <ul class="mitigation-list">
-                <li><strong>Differential privacy on explanations</strong> — Add calibrated noise to SHAP values before exposing them. Preserves the general narrative without revealing exact feature weights that attackers can exploit.</li>
-                <li><strong>Rate-limit explanation APIs</strong> — Treat explanation endpoints as sensitive data. Monitor for systematic probing patterns that suggest an attacker is mapping the model's decision logic.</li>
-                <li><strong>Retune anomaly detection</strong> — Existing monitors look for many large changes. Add rules that also flag transactions with suspiciously few but precisely targeted feature changes.</li>
-                <li><strong>Adversarial training</strong> — Augment training data with SHAP-guided adversarial examples so the model learns to resist precisely targeted perturbations.</li>
-                <li><strong>Selective transparency</strong> — Provide full SHAP values only to vetted internal auditors. Serve truncated or aggregated explanations to external-facing systems.</li>
-                <li><strong>Ensemble diversity</strong> — Use models with diverse architectures so that SHAP values from one model do not expose the full ensemble's decision boundary.</li>
+                <li><strong>Differential privacy on explanations:</strong> Add calibrated noise to SHAP values before exposing them. Preserves the general narrative without revealing exact feature weights that attackers can exploit.</li>
+                <li><strong>Rate-limit explanation APIs:</strong> Treat explanation endpoints as sensitive data. Monitor for systematic probing patterns that suggest an attacker is mapping the model's decision logic.</li>
+                <li><strong>Retune anomaly detection:</strong> Existing monitors look for many large changes. Add rules that also flag transactions with suspiciously few but precisely targeted feature changes.</li>
+                <li><strong>Adversarial training:</strong> Augment training data with SHAP-guided adversarial examples so the model learns to resist precisely targeted perturbations.</li>
+                <li><strong>Selective transparency:</strong> Provide full SHAP values only to vetted internal auditors. Serve truncated or aggregated explanations to external-facing systems.</li>
+                <li><strong>Ensemble diversity:</strong> Use models with diverse architectures so that SHAP values from one model do not expose the full ensemble's decision boundary.</li>
             </ul>
         </section>
 
@@ -752,7 +750,7 @@
 
             <div class="pull-quote">
                 <p>
-                    Explainable AI does not just help attackers understand a model — it helps them
+                    Explainable AI does not just help attackers understand a model. It helps them
                     perform invisible attacks inside it. The stealth advantage given by SHAP access is
                     a signficiant structural vulnerability in any explainable AI deployment.
                 </p>
@@ -769,12 +767,12 @@
         <section>
             <h2>About This Research</h2>
             <table class="about-table">
-                <tr><td>Dataset</td><td>Synthetic — generated using <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html" style="color:#8b3a3a;">scikit-learn make_classification</a>. 100,000 transactions, 30 features (10 informative, 20 noise), 0.5% fraud rate, 1% label noise. Chosen to simulate realistic class overlap that credit card datasets lack.</td></tr>
+                <tr><td>Dataset</td><td>Synthetic, generated using <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html" style="color:#8b3a3a;">scikit-learn make_classification</a>. 100,000 transactions, 30 features (10 informative, 20 noise), 0.5% fraud rate, 1% label noise. Chosen to simulate realistic class overlap that credit card datasets lack.</td></tr>
                 <tr><td>Model</td><td>XGBoost with L1/L2 regularization, max_depth=4, MinMaxScaler normalization</td></tr>
-                <tr><td>XAI Method</td><td>SHAP (SHapley Additive exPlanations) — game-theoretic feature attribution</td></tr>
+                <tr><td>XAI Method</td><td>SHAP (SHapley Additive exPlanations), game-theoretic feature attribution</td></tr>
                 <tr><td>Attack Budget</td><td>Identical for both methods: 50 iterations, step_size=0.05, features clipped to [0,1]</td></tr>
                 <tr><td>Key Differentiator</td><td>SHAP attack targets top-5 features by importance. Random attack selects blindly from all 30.</td></tr>
-                <tr><td>Reproducibility</td><td>Full implementation across 6 Jupyter notebooks — open and reproducible</td></tr>
+                <tr><td>Reproducibility</td><td>Full implementation across 6 Jupyter notebooks, open and reproducible</td></tr>
             </table>
         </section>
 
@@ -783,7 +781,7 @@
             <h2>Explore the Code</h2>
             <p>
                 The full experiment is implemented across six Jupyter notebooks. Open any notebook
-                directly in Google Colab — no installation required.
+                directly in Google Colab.
             </p>
 
             <ul class="notebook-list">
@@ -817,7 +815,7 @@
     </main>
 
     <footer>
-        <strong>XAI Security Vulnerability — Proof of Concept</strong><br>
+        <strong>XAI Security Vulnerability: Proof of Concept</strong><br>
         Academic research on adversarial stealth attacks against explainable fraud detection systems.<br>
         For research and educational purposes only.
     </footer>
